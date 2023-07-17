@@ -45,7 +45,9 @@ const Footer = () => {
         <div className="grid grid-cols-2 max-md:space-y-10 text-center text-lg-start">
           <div className="col-span-2 md:col-span-1 ">
             <h4 className="text-black py-5  cursor-default font-semibold text-[18px]">
-              {translate ? "أطلب الآن" : "Order Now"}
+              {translate
+                ? "للتواصل أو الطلبات من فضلك إضغط الزر أسفله"
+                : "for contact or orders, please click the button below"}
             </h4>
             <p className="text-black mt-3 mb-3  cursor-default">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.

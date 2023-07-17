@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { MdClose } from "react-icons/md";
 import Button from "../reusable/Button";
 import { changeLanguage } from "../store/reducers/languageSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -91,11 +92,20 @@ const Header = () => {
       <div className=" md:hidden flex flex-col items-start justify-start   h-full">
         <div className="flex items-center justify-between h-full w-full p-2    ">
           <img src={logo} alt={`logo`} className={`h-8 w-16 object-contain `} />
-          <RxHamburgerMenu
-            fontSize={18}
-            className="text-white h-12 w-12 px-3 cursor-pointer hover:text-yellow-200 active:text-yellow-200 duration-150 "
-            onClick={() => setOpenMenu(!openMenu)}
-          />
+          {!openMenu && (
+            <RxHamburgerMenu
+              fontSize={18}
+              className="text-white h-12 w-12 px-3 cursor-pointer hover:text-yellow-200 active:text-yellow-200 duration-150 "
+              onClick={() => setOpenMenu(!openMenu)}
+            />
+          )}
+          {openMenu && (
+            <MdClose
+              fontSize={18}
+              className="text-white h-12 w-12 px-3 cursor-pointer hover:text-yellow-200 active:text-yellow-200 duration-150 "
+              onClick={() => setOpenMenu(!openMenu)}
+            />
+          )}
         </div>
         <div
           className={` ${

@@ -14,6 +14,7 @@ import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 // imports
 if (import.meta.env.NODE_ENV === "production") {
   disableReactDevTools();
+  console.log = () => {};
 }
 
 // routes

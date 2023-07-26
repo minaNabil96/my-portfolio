@@ -6,6 +6,7 @@ export const apiSlice = createApi({
   reducerPath: "myWorksApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `${baseUrl}`,
+
     // baseUrl: `http://192.168.1.7:5000/`,
   }),
   endpoints: (builder) => ({
@@ -26,7 +27,12 @@ export const apiSlice = createApi({
       query: () => `/users/refresh`,
     }),
     // end refresh
+    refreshBlog: builder.query({
+      query: () => `https://laconicblogsampleapi.onrender.com/`,
+      // query: () => `http://192.168.1.7:5000/`,
+    }),
   }),
 });
 
-export const { useContactMutation, useRefreshQuery } = apiSlice;
+export const { useContactMutation, useRefreshQuery, useRefreshBlogQuery } =
+  apiSlice;

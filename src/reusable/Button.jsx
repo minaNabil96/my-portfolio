@@ -2,7 +2,7 @@ import React from "react";
 
 const Button = ({ children, btnstyle }) => {
   const toTop = () => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   };
 
   return (

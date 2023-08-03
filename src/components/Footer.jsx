@@ -4,6 +4,7 @@ import Button from "../reusable/Button.jsx";
 import { Link } from "react-router-dom";
 import { FaSquareFacebook, FaLinkedin } from "react-icons/fa6";
 import { FaTwitterSquare } from "react-icons/fa";
+import { GiClover } from "react-icons/gi";
 import { useSelector } from "react-redux";
 //
 const logo =
@@ -47,14 +48,16 @@ const Footer = () => {
             <h4 className="text-black py-5  cursor-default font-semibold text-[18px]">
               {translate
                 ? "للتواصل أو الطلبات من فضلك إضغط الزر أسفله"
-                : "for contact or orders, please click the button below"}
+                : "for contact please click the button below"}
             </h4>
-            <p className="text-black mt-3 mb-3  cursor-default">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Laudantium vero quo atque fugit iure asperiores voluptatibus ea.
-              Nam aliquid tempora dolorem recusandae, placeat iure quo
-              repellendus. Fuga ipsam illo cumque.
+            <div className={`flex items-center justify-center my-4`} >        
+             <p className="text-black mx-2  cursor-default">
+              Programing is Life 
             </p>
+                              <GiClover className={`text-green-500`} />
+
+            </div>
+           
             <Link to="/contact">
               {/* <button */}
               {/*   className="bg-purple-500 rounded-lg py-1 px-4 my-4 ring-1 ring-slate-500 text-black  text-[14px] hover:ring-slate-400 hover:bg-purple-600   hover:shadow-md hover:shadow-slate-500 duration-150 " */}
@@ -65,7 +68,7 @@ const Footer = () => {
               <Button
                 btnstyle={`bg-purple-500 rounded-lg py-2 px-4 my-4 ring-1 ring-slate-500 text-white  text-[14px] hover:ring-slate-400 hover:bg-purple-600   hover:shadow-sm hover:shadow-slate-500 duration-150`}
               >
-                {translate ? "أطلب" : "Order"}
+                {translate ? "التواصل" : "Contact"}
               </Button>
             </Link>
 

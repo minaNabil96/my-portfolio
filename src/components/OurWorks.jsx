@@ -73,7 +73,7 @@ const OurWorks = () => {
   const myWorksImgsMap = myWorksImgs.map(({ url }) => url);
   return (
     <div
-      className={`min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-slate-300 overflow-hidden `}
+      className={`min-h-screen max-lg:min-h-[700px] flex items-center justify-center bg-gradient-to-br from-white to-slate-300 overflow-hidden `}
     >
       <div
         className={`grid grid-cols-2 place-items-center place-content-center my-10 `}

@@ -47,7 +47,7 @@ const WithPackage = () => {
   ));
   return (
     <div
-      className={`min-h-screen bg-gradient-to-tr from-mainColor2/60 to-mainColor flex items-center justify-center`}
+      className={`min-h-screen max-lg:min-h-[700px] bg-gradient-to-tr from-mainColor2/60 to-mainColor flex items-center justify-center`}
     >
       <div
         className={`container mx-auto grid grid-cols-1 md:cols-2 space-y-20 py-20`}

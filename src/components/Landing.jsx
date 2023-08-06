@@ -3,7 +3,7 @@ import { RiDoubleQuotesL } from "react-icons/ri";
 
 const Landing = () => {
   return (
-    <div className="min-h-screen relative mx-auto flex items-center justify-center bg-gradient-to-br from-white to-slate-300 overflow-hidden ">
+    <div className="min-h-screen max-lg:min-h-[700px]  relative mx-auto flex items-center justify-center bg-gradient-to-br from-white to-slate-300 overflow-hidden ">
       <div className=" z-10 absolute grid grid-cols-1 md:grid-cols-2 max-md:space-y-36 container max-md:py-10">
         <div className="flex flex-col items-center justify-start gap-6">
           <h2 className="text-[34px] font-bold text-black">Hello, Im Mina..</h2>

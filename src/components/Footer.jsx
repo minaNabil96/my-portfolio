@@ -41,8 +41,8 @@ const Footer = () => {
   ));
 
   return (
-    <footer className="py-5 bg-white">
-      <div className="container mx-auto">
+    <footer className="py-5 bg-white  ">
+      <div className="container mx-auto ">
         <div className="grid grid-cols-2 max-md:space-y-10 text-center text-lg-start">
           <div className="col-span-2 md:col-span-1 ">
             <h4 className="text-black py-5  cursor-default font-semibold text-[18px]">

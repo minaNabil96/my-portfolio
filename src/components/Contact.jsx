@@ -79,7 +79,7 @@ const Contact = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-slate-300 py-8">
+    <div className="min-h-screen max-lg:min-h-[700px] flex items-center justify-center bg-gradient-to-br from-white to-slate-300 py-8">
       {!contactStatus ? (
         <div className={`h-full w-full`}>
           <LoadingPage />

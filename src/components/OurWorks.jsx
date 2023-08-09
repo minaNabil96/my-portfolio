@@ -80,7 +80,7 @@ const OurWorks = () => {
       >
         <div className="max-lg:col-span-2 place-self-start mx-auto space-y-20 p-2 max-md:my-10 ">
           <h2 className="text-[32px] text-black text-center border-b-2 border-b-slate-700 py-2 ">
-            {translate ? "عينات من أعمالنا" : "Samples of Our Works"}
+            {translate ? "عينات من أعمالنا" : "Samples of Our Work"}
           </h2>
           <div className="px-20 max-md:px-10 ">{myWorksMap}</div>
         </div>

@@ -3,9 +3,9 @@ export default {
   theme: {
     extend: {
       animation: {
-        blob1: "blob1 10s infinite",
-        blob2: "blob2 10s infinite",
-        blob3: "blob3 10s infinite",
+        blob1: "blob1 8s infinite",
+        blob2: "blob2 8s infinite",
+        blob3: "blob3 8s infinite",
       },
       keyframes: {
         blob1: {

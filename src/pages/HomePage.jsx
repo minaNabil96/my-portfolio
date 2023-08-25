@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Landing from "../components/Landing";
 import WithPackage from "../components/WithPackage";
 import OurWorks from "../components/OurWorks";
+import AboutMe from "../components/AboutMe";
 import { useRefreshQuery, useRefreshBlogQuery } from "../store/api/apiSlice";
 import { openContact } from "../store/reducers/languageSlice";
 import { useDispatch } from "react-redux";
@@ -15,7 +16,6 @@ const HomePage = () => {
     data: res2,
   } = useRefreshBlogQuery();
   const dispatch = useDispatch();
-  console.log(res2);
   useEffect(() => {
     if (res && res.status === "ready") {
       dispatch(openContact(true));
@@ -23,11 +23,13 @@ const HomePage = () => {
       dispatch(openContact(false));
     }
   }, [dispatch, res]);
+
   return (
     <>
       <Landing />
       <WithPackage />
       <OurWorks />
+      <AboutMe />
     </>
   );
 };

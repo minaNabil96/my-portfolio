@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoArrowForwardCircleSharp } from "react-icons/io5";
 import SwiperComponent from "../reusable/SwiperComponent";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { findTheTopOfElement } from "../store/reducers/scrollingSlice";
 
 //
 const myWorks = [
@@ -53,8 +54,17 @@ const tv =
   "https://res.cloudinary.com/minatry/image/upload/v1689518520/myworks/q3pkclqdicfng9xbmdhu.png";
 //
 const OurWorks = () => {
+  const ourWorks = useRef();
   const { translate } = useSelector((state) => state.languageSlice);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(
+      findTheTopOfElement({
+        top: ourWorks.current.offsetTop,
+        name: "ourWorks",
+      }),
+    );
+  }, [dispatch]);
   const myWorksMap = myWorks.map(({ name, link }) => (
     <Link key={name} to={link} relative={`path`}>
       <div className="relative bg-gradient-to-tr from-mainColor2/60 to-mainColor p-1 my-3 rounded-md flex  items-center justify-start px-3 space-x-3 group shadow-sm shadow-slate-300 ">
@@ -74,6 +84,7 @@ const OurWorks = () => {
   return (
     <div
       className={`min-h-screen max-lg:min-h-[700px] flex items-center justify-center bg-gradient-to-br from-white to-slate-300 overflow-hidden `}
+      ref={ourWorks}
     >
       <div
         className={`grid grid-cols-2 place-items-center place-content-center my-10 `}

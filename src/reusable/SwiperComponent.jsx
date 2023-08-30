@@ -28,6 +28,8 @@ const SwiperComponent = ({
       slides-per-view={`${slideNum ? slideNum : "1"}`}
       navigation={`${arrows ? "true" : "false"}`}
       pagination={pagination ? "true" : "false"}
+      // direction="vertical"
+      // disable-on-interaction="false"
       // pagination-dynamic-bullets="true"
     >
       {notSimpleMap ? notSimpleMap : imagesMap}

@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { findTheTopOfElement } from "../store/reducers/scrollingSlice";
+import { IoArrowForwardCircleSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
+
 //
 const myPhoto = `https://res.cloudinary.com/minatry/image/upload/v1692445323/y5wjcyiaqb5mrvxqjg8v.jpg`;
 const suezMisLogo = `https://res.cloudinary.com/minatry/image/upload/v1692446351/stoxd6lkttqdbxxizkrn.png`;
@@ -29,35 +32,35 @@ const AboutMe = () => {
 				className={`grid max-md:grid-cols-1 grid-cols-2 place-content-start w-full space-y-10 my-8 `}
 			>
 				<div
-					className={`flex items-center justify-center flex-col space-y-6`}
+					className={`flex items-center justify-center flex-col space-y-6 max-md:border-b border-r border-slate-100 `}
 				>
 					<div
-						className={`flex items-center justify-center w-[290px] border-b border-slate-100  pb-3 `}
+						className={`flex items-center justify-center w-[290px] border-b border-slate-100  pb-3  `}
 					>
 						<img
 							src={myPhoto}
 							alt={`myphoto`}
-							className={` h-24 w-24 rounded-full object-cover ring-2 ring-teal-700`}
+							className={` h-24 w-24 rounded-full object-cover  shadow-sm shadow-slate-700 ring-2 ring-mainColor `}
 						/>
 					</div>
-					<div className={`w-[70%]`}>
+					<div className={`w-[75%] pb-4  `}>
 						<p
-							className={`text-white text-[17px] leading-8 text-start capitalize line-height-[10px]`}
+							className={`text-white text-[16px] leading-8 text-start capitalize line-height-[10px]`}
 						>
 							{`I’m Front End Developer with 2 years of experience.
+							I worked on different projects, with different technologies. 	
 							I can do more than front end work, bacause i can
 							work with back end technologies and use it to make
 							restful apis, such node express and deal with
 							mongoDB using mongoose.
-							I worked on different projects, with different technologies. 
 							I'm passionate about the latest technologies. 
 							I always strive to learn new technologies to achieve the best way to create
-							websites.`}
+							web applications.`}
 						</p>
 					</div>
 				</div>
 				<div
-					className={`flex items-center justify-center flex-col space-y-6`}
+					className={`flex items-center justify-center flex-col space-y-8`}
 				>
 					<div
 						className={`flex flex-col items-center justify-center w-[290px] space-y-4 `}
@@ -86,7 +89,7 @@ const AboutMe = () => {
 							/>
 						</div>
 						<p
-							className={`text-white text-[16px] font-medium flex flex-col items-end justify-center ${
+							className={`text-white text-[15px] font-medium flex flex-col items-end justify-center ${
 								translate ? "text-end" : "text-center"
 							}  w-full`}
 						>
@@ -104,24 +107,43 @@ const AboutMe = () => {
 						</p>
 					</div>
 					<div
-						className={`flex items-center justify-between w-[290px]`}
+						className={`flex items-center justify-between w-[290px] `}
 					>
 						<div className={`bg-slate-200 rounded-md p-1 `}>
 							<span
-								className={`h-10 w-10 uppercase text-mainColor text-[19px]  font-bold `}
+								className={`h-10 w-10 uppercase text-mainColor text-[18px]  font-bold `}
 							>
-								gba
+								pc%
 							</span>
 						</div>
 						<p
-							className={`text-white text-center text-[16px] font-medium flex flex-col ${
+							className={`text-white text-center text-[15px] font-medium flex flex-col ${
 								translate ? "items-end" : "items-center"
 							} justify-center capitalize w-full`}
 						>
-							75.44%
+							75.44
 							<span>{translate ? "جيد جداً" : "very good"}</span>
 						</p>
 					</div>
+					<Link
+						to={`https://drive.google.com/file/d/1V1GAE7IipbS2OCrU8U789CX5x8dHeftp/view?usp=drive_link`}
+						relative={`path`}
+						target="_blank"
+					>
+						<button
+							type="button"
+							className={` p-1 bg-gradient-to-tr from-mainColor2/70 to-mainColor flex items-center justify-around duration-150 rounded-sm  h-[35px] w-[70px]  hover:bg-mainColor2 hover:shadow-sm hover:shadow-mainColor group `}
+						>
+							<span
+								className={`text-white text-[14px]   uppercase group-hover:text-yellow-200 duration-150 `}
+							>
+								cv
+							</span>
+							<IoArrowForwardCircleSharp
+								className={`text-white text-[22px] group-hover:text-yellow-200 duration-150 transform group-hover:translate-x-1 `}
+							/>
+						</button>
+					</Link>
 				</div>
 			</div>
 		</div>

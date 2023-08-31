@@ -47,7 +47,7 @@ const AboutMe = () => {
 						<p
 							className={`text-white text-[16px] leading-8 text-start capitalize line-height-[10px]`}
 						>
-							{`I’m Front End Developer with 2 years of experience.
+							{`I’m a Front End Developer with 2 years of experience.
 							I worked on different projects, with different technologies. 	
 							I can do more than front end work, bacause i can
 							work with back end technologies and use it to make

@@ -30,7 +30,7 @@ const Landing = () => {
             fade ? " opacity-100 " : " -translate-x-80 opacity-0 "
           } duration-1000 flex flex-col items-center justify-start gap-6`}
         >
-          <h2 className="text-[34px] font-bold text-black">Hello, Im Mina..</h2>
+          <h2 className="text-[34px] font-bold text-black">{`Hello, I'm Mina..`}</h2>
           <h3 className="text-[28px] text-black/95 font-semibold ">
             This is my Portfolio
           </h3>

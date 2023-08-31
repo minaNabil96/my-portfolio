@@ -50,14 +50,13 @@ const Footer = () => {
                 ? "للتواصل أو الطلبات من فضلك إضغط الزر أسفله"
                 : "for contact please click the button below"}
             </h4>
-            <div className={`flex items-center justify-center my-4`} >        
-             <p className="text-black mx-2  cursor-default">
-              Programing is Life 
-            </p>
-                              <GiClover className={`text-green-500`} />
-
+            <div className={`flex items-center justify-center my-4`}>
+              <p className="text-black mx-2  cursor-default">
+                Programing is Life
+              </p>
+              <GiClover className={`text-green-500`} />
             </div>
-           
+
             <Link to="/contact">
               {/* <button */}
               {/*   className="bg-purple-500 rounded-lg py-1 px-4 my-4 ring-1 ring-slate-500 text-black  text-[14px] hover:ring-slate-400 hover:bg-purple-600   hover:shadow-md hover:shadow-slate-500 duration-150 " */}
@@ -72,9 +71,9 @@ const Footer = () => {
               </Button>
             </Link>
 
-            <ul className="flex justify-center py-4 items-center gap-4">
-              {linksMap}
-            </ul>
+            {/* <ul className="flex justify-center py-4 items-center gap-4"> */}
+            {/*   {linksMap} */}
+            {/* </ul> */}
           </div>
           <div className=" col-span-2 md:col-span-1 max-md:space-y-10 flex flex-col items-center py-4 justify-between ">
             <Link to="/">

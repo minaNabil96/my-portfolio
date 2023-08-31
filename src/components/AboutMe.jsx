@@ -126,7 +126,7 @@ const AboutMe = () => {
 						</p>
 					</div>
 					<Link
-						to={`https://drive.google.com/file/d/1V1GAE7IipbS2OCrU8U789CX5x8dHeftp/view?usp=drive_link`}
+						to={`https://drive.google.com/file/d/1V2IiU8UdLFjUXnzDtnPUYl19vhL8UZ15/view?usp=drive_link`}
 						relative={`path`}
 						target="_blank"
 					>

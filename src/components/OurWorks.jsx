@@ -1,4 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
 import { Link } from "react-router-dom";
 import { IoArrowForwardCircleSharp } from "react-icons/io5";
 import SwiperComponent from "../reusable/SwiperComponent";
@@ -15,13 +21,17 @@ const myWorks = [
     name: "homeflix",
     link: `https://homeflix-pi.vercel.app/`,
   },
+  {
+    name: "elfathrealestate",
+    link: `https://elfathrealestate.vercel.app/`,
+  },
 ];
 
-const myWorksForButtons = [
-  { name: "e-commerce" },
-  { name: "blog" },
-  { name: "homeflix" },
-];
+// const myWorksForButtons = [
+//   { name: "commerce" },
+//   { name: "blog" },
+//   { name: "homeflix" },
+// ];
 
 const myWorksImgs = [
   {
@@ -68,14 +78,16 @@ const myWorksImgs = [
     name: "homeflix",
     url: `https://res.cloudinary.com/minatry/image/upload/v1693384690/itt9sqbdpbbwldubr1xg.jpg`,
   },
+  {
+    name: "elfathrealestate",
+    url: `https://res.cloudinary.com/minatry/image/upload/v1694200103/nvlrzvlgvokrlb1wnpmr.png`,
+  },
 ];
 
-const tv =
-  "https://res.cloudinary.com/minatry/image/upload/v1689518520/myworks/q3pkclqdicfng9xbmdhu.png";
 //
 const OurWorks = () => {
-  const [project, setProject] = useState("e-commerce");
-  const [isHoverd, setIsHoverd] = useState(false);
+  const [project, setProject] = useState("commerce");
+  const [isClicked, setIsClicked] = useState(false);
   const [hoverBack, setHoverBack] = useState(true);
   const ourWorks = useRef();
   const { translate } = useSelector((state) => state.languageSlice);
@@ -102,18 +114,61 @@ const OurWorks = () => {
       </div>
     </Link>
   ));
+  const setmap = useMemo(
+    () => [...new Set(myWorksImgs.map(({ name }) => name))],
+    [],
+  );
 
-  const blogImages = myWorksImgs
-    .filter(({ name }) => name === "blog")
-    .map(({ name, url }) => url);
-  const commerceImages = myWorksImgs
-    .filter(({ name }) => name === "commerce")
-    .map(({ name, url }) => url);
-  const homeflixImages = myWorksImgs
-    .filter(({ name }) => name === "homeflix")
-    .map(({ name, url }) => url);
-
-  console.log(isHoverd);
+  const projectsButtonsMap = setmap.map(
+    (peojectName, idx) =>
+      peojectName === project && (
+        <div
+          key={idx}
+          className={`relative w-[450px] max-sm:w-[350px] h-[250px] overflow-hidden  aspect-video group border-4 border-black bg-black `}
+          onClick={() => {
+            if (isClicked) {
+              setIsClicked(false);
+              setHoverBack(true);
+            } else {
+              setIsClicked(true);
+              setHoverBack(false);
+            }
+          }}
+          onMouseLeave={() => {
+            setIsClicked(false);
+            setHoverBack(true);
+          }}
+        >
+          {hoverBack && (
+            <div
+              className={`absolute bg-black/50 min-w-full min-h-full z-10 flex items-center justify-center cursor-pointer`}
+            >
+              <h3
+                className={`text-yellow-300 text-[20px] capitalize select-none  `}
+              >
+                click
+              </h3>
+            </div>
+          )}
+          <div
+            className={`h-fit transform duration-[4400ms] ease-in-out ${
+              isClicked ? "-translate-y-[calc(100%-250px)]" : ""
+            }`}
+          >
+            {myWorksImgs
+              .filter(({ name }) => name === project)
+              .map(({ url, name }, idx) => (
+                <img
+                  key={idx}
+                  src={url}
+                  alt="any"
+                  className={`object-fill  w-full   `}
+                />
+              ))}
+          </div>
+        </div>
+      ),
+  );
   return (
     <div
       className={`min-h-screen max-lg:min-h-[700px]  bg-gradient-to-br from-white to-slate-300 overflow-hidden `}
@@ -130,12 +185,16 @@ const OurWorks = () => {
           className={` max-lg:col-span-2  flex items-center justify-center flex-col space-y-20  `}
         >
           <div className={`flex items-center justify-around w-[70%]`}>
-            {myWorksForButtons.map(({ name }, idx) => (
+            {setmap.map((name, idx) => (
               <button
                 type="button"
                 key={idx}
                 className={` p-2 bg-gradient-to-tr from-mainColor2/70 to-mainColor flex items-center justify-around duration-150 rounded-sm  h-[40px] w-fit  hover:bg-mainColor2 hover:shadow-sm hover:shadow-mainColor group `}
-                onClick={() => setProject(name)}
+                onClick={() => {
+                  setProject(name);
+                  setIsClicked(false);
+                  setHoverBack(true);
+                }}
               >
                 <span
                   className={`text-white text-[12px]   uppercase  group-hover:text-yellow-200 duration-150 `}
@@ -145,120 +204,7 @@ const OurWorks = () => {
               </button>
             ))}
           </div>
-          {project === "blog" && (
-            <div
-              className={`w-[450px] max-sm:w-[350px] h-[250px] overflow-hidden aspect-video border-4 border-black bg-black `}
-            >
-              <SwiperComponent
-                images={blogImages}
-                slideNum={1}
-                imagesStyle={` object-fill  w-full  h-[250px]     `}
-                arrows={false}
-                auto={true}
-                pagination={false}
-              />
-            </div>
-          )}
-          {project === "e-commerce" && (
-            <div
-              className={`relative w-[450px] max-sm:w-[350px] h-[250px] overflow-hidden  aspect-video group border-4 border-black bg-black `}
-              onMouseEnter={() => {
-                setIsHoverd(true);
-                setHoverBack(false);
-              }}
-              onMouseLeave={() => {
-                setIsHoverd(false);
-                setTimeout(() => {
-                  setHoverBack(true);
-                }, 4400);
-              }}
-              onTouchStart={() => {
-                setIsHoverd(true);
-                setHoverBack(false);
-              }}
-              onTouchEnd={() => {
-                setIsHoverd(false);
-                setTimeout(() => {
-                  setHoverBack(true);
-                }, 4400);
-              }}
-            >
-              {hoverBack && (
-                <div
-                  className={`absolute bg-black/50 min-w-full min-h-full z-10 flex items-center justify-center `}
-                >
-                  <h3 className={`text-yellow-300 text-[20px] capitalize  `}>
-                    hover
-                  </h3>
-                </div>
-              )}
-              <div
-                className={`h-fit transform duration-[4400ms] ease-in-out ${
-                  isHoverd ? "-translate-y-[calc(100%-250px)]" : ""
-                }`}
-              >
-                {commerceImages &&
-                  commerceImages.map((image, idx) => (
-                    <img
-                      key={idx}
-                      src={image}
-                      alt="any"
-                      className={`object-fill  w-full   `}
-                    />
-                  ))}
-              </div>
-            </div>
-          )}
-          {project === "homeflix" && (
-            <div
-              className={` relative w-[450px] max-sm:w-[350px] h-[250px] overflow-hidden  aspect-video group border-4 border-black bg-black `}
-              onMouseEnter={() => {
-                setIsHoverd(true);
-                setHoverBack(false);
-              }}
-              onMouseLeave={() => {
-                setIsHoverd(false);
-                setTimeout(() => {
-                  setHoverBack(true);
-                }, 6400);
-              }}
-              onTouchStart={() => {
-                setIsHoverd(true);
-                setHoverBack(false);
-              }}
-              onTouchEnd={() => {
-                setIsHoverd(false);
-                setTimeout(() => {
-                  setHoverBack(true);
-                }, 6400);
-              }}
-            >
-              {hoverBack && (
-                <div
-                  className={`absolute bg-black/50 min-w-full min-h-full z-10 flex items-center justify-center `}
-                >
-                  <h3 className={`text-yellow-300 text-[20px] capitalize  `}>
-                    hover
-                  </h3>
-                </div>
-              )}
-              <div
-                className={`h-fit transform duration-[6400ms] ease-in-out ${
-                  isHoverd ? "-translate-y-[calc(100%-250px)]" : ""
-                }`}
-              >
-                {homeflixImages &&
-                  homeflixImages.map((image, idx) => (
-                    <img
-                      key={idx}
-                      src={image}
-                      alt="any"
-                      className={`object-fill  w-full   `}
-                    />
-                  ))}
-              </div>
-            </div>
-          )}
+          {projectsButtonsMap}
         </div>
       </div>
     </div>

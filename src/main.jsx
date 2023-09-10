@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import MainRoute from "./routes/MainRoute";
 import Contact from "./components/Contact";
-import About from "./components/About";
+// import About from "./components/About";
 import ErrorPage from "./pages/ErrorPage";
 import LoadingPage from "./pages/LoadingPage";
 import HomePage from "./pages/HomePage";
@@ -36,10 +36,10 @@ const routes = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      {
-        path: "/about",
-        element: <About />,
-      },
+      // {
+      //   path: "/about",
+      //   element: <About />,
+      // },
     ],
   },
 ]);
@@ -48,5 +48,5 @@ const routes = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <RouterProvider router={routes} />
-  </Provider>
+  </Provider>,
 );

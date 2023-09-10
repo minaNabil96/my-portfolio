@@ -75,7 +75,7 @@ const Footer = () => {
             {/*   {linksMap} */}
             {/* </ul> */}
           </div>
-          <div className=" col-span-2 md:col-span-1 max-md:space-y-10 flex flex-col items-center py-4 justify-between ">
+          <div className=" col-span-2 md:col-span-1 space-y-10  flex flex-col items-center py-4 justify-between  ">
             <Link to="/">
               <img className="w-28 h-16" src={logo} alt="" />
             </Link>

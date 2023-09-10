@@ -10,9 +10,8 @@ const logo =
   "https://res.cloudinary.com/minatry/image/upload/v1689518523/myworks/cyataelepvlc9badi6dn.png";
 
 const tabs = [
-  { name: "Home", arabicName: "الرئيسية", path: "/" },
+  { name: "portfolio", arabicName: "معرض الأعمال", path: "/" },
   { name: "Contact", arabicName: "التواصل", path: "/contact" },
-  { name: "About", arabicName: "عنا", path: "/about" },
 ];
 
 const Header = () => {
@@ -39,22 +38,22 @@ const Header = () => {
 
   const [NavBackground, setNavBackground] = useState(true);
 
-  const scrollHandler = () => {
-    if (window.scrollY >= 66) {
-      setNavBackground(true);
-    } else {
-      setNavBackground(false);
-    }
-    window.addEventListener("scroll", scrollHandler);
-  };
+  // const scrollHandler = () => {
+  //   if (window.scrollY >= 66) {
+  //     setNavBackground(true);
+  //   } else {
+  //     setNavBackground(false);
+  //   }
+  //   window.addEventListener("scroll", scrollHandler);
+  // };
 
   const tabsMap = tabs.map(({ name, arabicName, path }, idx) => (
     <NavLink
       end
       className={({ isActive, isPending }) =>
         isActive
-          ? "bg-purple-200 text-black md:mx-2 w-full md:text-center p-2 md:px-2 md:py-1 md:rounded-sm md:shadow-sm shadow-slate-600  duration-150  "
-          : "md:mx-2 md:text-center text-yellow-100 w-full p-2 md:px-2 md:py-1 bg-inherit md:rounded-sm hover:shadow-sm hover:shadow-slate-600 hover:bg-purple-300/60 hover:text-black duration-150 "
+          ? "  bg-purple-200 text-black md:mx-2 w-fit max-md:w-full md:text-center p-2 md:px-2 md:py-1 md:rounded-sm md:shadow-sm shadow-slate-600  duration-150  "
+          : "md:mx-2 md:text-center text-yellow-100 w-fit max-md:w-full p-2 md:px-2 md:py-1 bg-inherit md:rounded-sm hover:shadow-sm hover:shadow-slate-600 hover:bg-purple-300/60 hover:text-black duration-150 "
       }
       to={path}
       key={idx}
@@ -66,7 +65,7 @@ const Header = () => {
   return (
     <nav
       className={`  bg-mainColor z-30 sticky top-0  h-fit md:h-14 shadow-sm shadow-inherit  `}
-      onScroll={() => scrollHandler()}
+      // onScroll={() => scrollHandler()}
     >
       {/* start md screens */}
       <div className="container mx-auto hidden md:flex items-center justify-between px-20  h-full">

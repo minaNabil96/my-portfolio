@@ -19,8 +19,8 @@ const Landing = () => {
   }, [fade]);
   const scrollHandler = (e, name) => {
     name === "graduation"
-      ? window.scrollTo(0, cvSectionTop - 50)
-      : window.scrollTo(0, ourWorkSectionTop - 50);
+      ? window.scrollTo(0, cvSectionTop)
+      : window.scrollTo(0, ourWorkSectionTop);
   };
   return (
     <div className="  max-lg:min-h-[800px] h-[700px]  relative mx-auto flex items-center justify-center bg-gradient-to-br from-white to-slate-300 overflow-hidden ">

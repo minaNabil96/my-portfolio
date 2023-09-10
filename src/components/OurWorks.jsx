@@ -7,9 +7,9 @@ import React, {
 } from "react";
 import { Link } from "react-router-dom";
 import { IoArrowForwardCircleSharp } from "react-icons/io5";
-import SwiperComponent from "../reusable/SwiperComponent";
 import { useSelector, useDispatch } from "react-redux";
 import { findTheTopOfElement } from "../store/reducers/scrollingSlice";
+import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
 //
 const myWorks = [
   {
@@ -89,6 +89,7 @@ const OurWorks = () => {
   const [project, setProject] = useState("commerce");
   const [isClicked, setIsClicked] = useState(false);
   const [hoverBack, setHoverBack] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
   const ourWorks = useRef();
   const { translate } = useSelector((state) => state.languageSlice);
   const dispatch = useDispatch();
@@ -119,7 +120,7 @@ const OurWorks = () => {
     [],
   );
 
-  const projectsButtonsMap = setmap.map(
+  const projectsMap = setmap.map(
     (peojectName, idx) =>
       peojectName === project && (
         <div
@@ -169,12 +170,19 @@ const OurWorks = () => {
         </div>
       ),
   );
+
+  // onClick={() => {
+  //                setProject(name);
+  //                setIsClicked(false);
+  //                setHoverBack(true);
+  //              }}
+
   return (
     <div
       className={`min-h-screen max-lg:min-h-[700px]  bg-gradient-to-br from-white to-slate-300 overflow-hidden `}
       ref={ourWorks}
     >
-      <div className={`grid grid-cols-2  my-10 `}>
+      <div className={`grid grid-cols-2  my-10 max-lg:space-y-12 `}>
         <div className="max-lg:col-span-2 place-self-start mx-auto space-y-20 p-2 max-md:my-10 ">
           <h2 className="text-[32px] text-black text-center border-b-2 border-b-slate-700 py-2 ">
             {translate ? "عينات من أعمالي" : "Samples of my Work"}
@@ -182,29 +190,53 @@ const OurWorks = () => {
           <div className="px-20 max-md:px-10">{myWorksMap}</div>
         </div>
         <div
-          className={` max-lg:col-span-2  flex items-center justify-center flex-col space-y-20  `}
+          className={` max-lg:col-span-2  flex items-center justify-center flex-col space-y-12   `}
         >
-          <div className={`flex items-center justify-around w-[70%]`}>
-            {setmap.map((name, idx) => (
-              <button
-                type="button"
-                key={idx}
-                className={` p-2 bg-gradient-to-tr from-mainColor2/70 to-mainColor flex items-center justify-around duration-150 rounded-sm  h-[40px] w-fit  hover:bg-mainColor2 hover:shadow-sm hover:shadow-mainColor group `}
-                onClick={() => {
-                  setProject(name);
-                  setIsClicked(false);
-                  setHoverBack(true);
-                }}
+          <div className={` flex items-center justify-center w-[70%]  `}>
+            <div
+              className={`relative h-10 bg-white border-2 border-mainColor min-w-[150px] rounded-md  flex items-center justify-center   hover:cursor-pointer `}
+            >
+              <div
+                className={`flex flex-row-reverse items-center justify-between p-2 w-full `}
+                onClick={() => setOpenMenu(!openMenu)}
               >
-                <span
-                  className={`text-white text-[12px]   uppercase  group-hover:text-yellow-200 duration-150 `}
+                {!openMenu ? (
+                  <GoTriangleDown className={`text-[20px]`} />
+                ) : (
+                  <GoTriangleUp className={`text-[20px]`} />
+                )}
+                <p
+                  className={` ${
+                    openMenu ? "text-black/70" : "text-black"
+                  } text-[17px] `}
                 >
-                  {name}
-                </span>
-              </button>
-            ))}
+                  {project}
+                </p>
+              </div>
+              {openMenu && (
+                <div
+                  className={` absolute top-[8.2rem] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20  bg-white  rounded-md flex items-center justify-center flex-col space-y-1  `}
+                  onMouseLeave={() => setOpenMenu(false)}
+                >
+                  {setmap.map((name, idx) => (
+                    <p
+                      key={idx}
+                      className={` w-full cursor-default hover:cursor-pointer text-black text-[17px]  p-2  flex items-center justify-around duration-150 rounded-sm  hover:text-yellow-300  hover:bg-mainColor2 hover:shadow-sm hover:shadow-stone-400 group `}
+                      onClick={() => {
+                        setOpenMenu(!openMenu);
+                        setProject(name);
+                        setIsClicked(false);
+                        setHoverBack(true);
+                      }}
+                    >
+                      {name}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-          {projectsButtonsMap}
+          {projectsMap}
         </div>
       </div>
     </div>

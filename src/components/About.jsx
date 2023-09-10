@@ -10,132 +10,36 @@ const features = [
 ];
 
 const About = () => {
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-  const ref3 = useRef(null);
-  const ref4 = useRef(null);
-  const ref5 = useRef(null);
-  const ref6 = useRef(null);
-  const isIntersecting1 = useIsInViewport(ref1);
-  const isIntersecting2 = useIsInViewport(ref2);
-  const isIntersecting3 = useIsInViewport(ref3);
-  const isIntersecting4 = useIsInViewport(ref4);
-  const isIntersecting5 = useIsInViewport(ref5);
-  const isIntersecting6 = useIsInViewport(ref6);
+  // const ref1 = useRef(null);
+  // const ref2 = useRef(null);
+  // const ref3 = useRef(null);
+  // const ref4 = useRef(null);
+  // const ref5 = useRef(null);
+  // const ref6 = useRef(null);
+  // const isIntersecting1 = useIsInViewport(ref1);
+  // const isIntersecting2 = useIsInViewport(ref2);
+  // const isIntersecting3 = useIsInViewport(ref3);
+  // const isIntersecting4 = useIsInViewport(ref4);
+  // const isIntersecting5 = useIsInViewport(ref5);
+  // const isIntersecting6 = useIsInViewport(ref6);
 
   return (
-    <div className=" min-h-screen  py-10  bg-gradient-to-br from-white to-slate-300 overflow-hidden ">
-      <div
-        className={` max-lg:space-y-40 container mx-auto  py-10 grid max-lg:grid-cols-1 grid-cols-2 place-items-center place-content-center  `}
-      >
-        {/* 1 */}
-        <div
-          ref={ref1}
-          className={`w-1/2 h-40 m-10 bg-gradient-to-tr from-mainColor2/60 to-mainColor rounded-md relative  transform ${
-            isIntersecting1 ? "" : "-translate-x-56 opacity-0 invisible "
-          } duration-[1500ms] shadow-sm shadow-purple-600  `}
+    <div className=" relative min-h-screen   py-10  bg-gradient-to-br from-white to-slate-300 overflow-hidden ">
+      <div className="custom-shape-divider-top-1694372582">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
         >
-          <div
-            className={`h-10 w-10 flex justify-center items-center bg-slate-800 rounded-full absolute -top-8 -right-5 ring-1 ring-purple-600 `}
-          >
-            <p className={`text-white p-1`}>{1}</p>
-          </div>
-          <p
-            className={`text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `}
-          >
-            {`COMPETITIVE PRICES`}
-          </p>
-        </div>
-        {/* 2 */}
-        <div
-          ref={ref2}
-          className={`w-1/2 h-40 m-10 bg-gradient-to-tr from-mainColor2/60 to-mainColor rounded-md relative transform ${
-            isIntersecting2 ? "" : "translate-x-56 opacity-0 invisible "
-          } duration-[1500ms] shadow-sm shadow-purple-600  `}
-        >
-          <div
-            className={`h-10 w-10 flex justify-center items-center bg-slate-800 rounded-full absolute -top-8 -right-5 ring-1 ring-purple-600 `}
-          >
-            <p className={`text-white p-1`}>{2}</p>
-          </div>
-          <p
-            className={`text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `}
-          >
-            {`RESPONSIVE DESIGNS`}
-          </p>
-        </div>
-        {/* 3 */}
-        <div
-          ref={ref3}
-          className={`w-1/2 h-40 m-10 bg-gradient-to-tr from-mainColor2/60 to-mainColor rounded-md relative transform ${
-            isIntersecting3 ? "" : "-translate-x-56 opacity-0 invisible "
-          } duration-[1500ms] shadow-sm shadow-purple-600  `}
-        >
-          <div
-            className={`h-10 w-10 flex justify-center items-center bg-slate-800 rounded-full absolute -top-8 -right-5 ring-1 ring-purple-600 `}
-          >
-            <p className={`text-white p-1`}>{3}</p>
-          </div>
-          <p
-            className={`text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `}
-          >
-            {`GUARANTED WORK`}
-          </p>
-        </div>
-        {/* 4 */}
-        <div
-          ref={ref4}
-          className={`w-1/2 h-40 m-10 bg-gradient-to-tr from-mainColor2/60 to-mainColor rounded-md relative transform ${
-            isIntersecting4 ? "" : "translate-x-56 opacity-0 invisible "
-          } duration-[1500ms] shadow-sm shadow-purple-600  `}
-        >
-          <div
-            className={`h-10 w-10 flex justify-center items-center bg-slate-800 rounded-full absolute -top-8 -right-5 ring-1 ring-purple-600 `}
-          >
-            <p className={`text-white p-1`}>{4}</p>
-          </div>
-          <p
-            className={`text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `}
-          >
-            {`LISTEN, AND UPDATE`}
-          </p>
-        </div>
-      {/* 5 */}
-      <div
-          ref={ref5}
-          className={`w-1/2 h-40 m-10 bg-gradient-to-tr from-mainColor2/60 to-mainColor rounded-md relative transform ${
-            isIntersecting5 ? "" : "-translate-x-56 opacity-0 invisible "
-          } duration-[1500ms] shadow-sm shadow-purple-600  `}
-        >
-          <div
-            className={`h-10 w-10 flex justify-center items-center bg-slate-800 rounded-full absolute -top-8 -right-5 ring-1 ring-purple-600 `}
-          >
-            <p className={`text-white p-1`}>{5}</p>
-          </div>
-          <p
-            className={`text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `}
-          >
-            {`COMMITMENT`}
-          </p>
-         </div>
-       {/* 6 */}
-       <div
-          ref={ref6}
-          className={`w-1/2 h-40 m-10 bg-gradient-to-tr from-mainColor2/60 to-mainColor rounded-md relative transform ${
-            isIntersecting6 ? "" : "translate-x-56 opacity-0 invisible "
-          } duration-[1500ms] shadow-sm shadow-purple-600  `}
-        >
-          <div
-            className={`h-10 w-10 flex justify-center items-center bg-slate-800 rounded-full absolute -top-8 -right-5 ring-1 ring-purple-600 `}
-          >
-            <p className={`text-white p-1`}>{6}</p>
-          </div>
-          <p
-            className={`text-white text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `}
-          >
-            {`SUPPORT AND ADVICE`}
-          </p>
-        </div>
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            className="shape-fill"
+          ></path>
+        </svg>
+      </div>
+      <div className={`flex items-center justify-center`}>
+        <div></div>
       </div>
     </div>
   );
@@ -143,24 +47,24 @@ const About = () => {
 
 export default About;
 
-function useIsInViewport(ref) {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-
-  const observer = useMemo(
-    () =>
-      new IntersectionObserver(([entry]) =>
-        setIsIntersecting(entry.isIntersecting)
-      ),
-    []
-  );
-
-  useEffect(() => {
-    observer.observe(ref.current);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [ref, observer]);
-
-  return isIntersecting;
-}
+// function useIsInViewport(ref) {
+//   const [isIntersecting, setIsIntersecting] = useState(false);
+//
+//   const observer = useMemo(
+//     () =>
+//       new IntersectionObserver(([entry]) =>
+//         setIsIntersecting(entry.isIntersecting),
+//       ),
+//     [],
+//   );
+//
+//   useEffect(() => {
+//     observer.observe(ref.current);
+//
+//     return () => {
+//       observer.disconnect();
+//     };
+//   }, [ref, observer]);
+//
+//   return isIntersecting;
+// }

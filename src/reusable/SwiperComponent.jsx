@@ -1,40 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { register } from "swiper/element/bundle";
+import database from "../assets/database.json";
 
-register();
-const SwiperComponent = ({
-  images,
-  imagesStyle,
-  auto,
-  arrows,
-  notSimple,
-  slideNum,
-  pagination,
-}) => {
-  const imagesMap =
-    images &&
-    images.map((image, idx) => (
-      <swiper-slide key={idx}>
-        <img className={imagesStyle} src={image} alt={`img`} />
-      </swiper-slide>
-    ));
-  const notSimpleMap =
-    notSimple &&
-    notSimple.map((card, idx) => <swiper-slide key={idx}>{card}</swiper-slide>);
-  return (
-    <swiper-container
-      autoplay={`${auto ? "true" : "false"}`}
-      data-swiper-autoplay="3500"
-      slides-per-view={`${slideNum ? slideNum : "1"}`}
-      navigation={`${arrows ? "true" : "false"}`}
-      pagination={pagination ? "true" : "false"}
-      // direction="vertical"
-      // disable-on-interaction="false"
-      // pagination-dynamic-bullets="true"
-    >
-      {notSimpleMap ? notSimpleMap : imagesMap}
-    </swiper-container>
-  );
+const SwiperComponent = () => {
+  console.log("swiper");
+  return <div>hello</div>;
 };
 
 export default SwiperComponent;

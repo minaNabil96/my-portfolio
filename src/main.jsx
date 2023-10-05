@@ -18,35 +18,38 @@ if (import.meta.env.NODE_ENV === "production") {
 }
 
 // routes
-const routes = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainRoute />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        index: true,
-        element: (
-          <Suspense fallback={<LoadingPage />}>
-            <HomePage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      // {
-      //   path: "/about",
-      //   element: <About />,
-      // },
-    ],
-  },
-]);
+const routes = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <MainRoute />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          index: true,
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <HomePage />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
+        },
+        // {
+        //   path: "/about",
+        //   element: <About />,
+        // },
+      ],
+    },
+  ],
+  { basename: "/my-portfolio/" }
+);
 
 // main app
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <RouterProvider router={routes} />
-  </Provider>,
+  </Provider>
 );
